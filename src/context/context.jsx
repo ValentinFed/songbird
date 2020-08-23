@@ -24,7 +24,7 @@ const MainProvider = ({children}) => {
         <MainContext.Provider value={{
                 scope: state.scope,
                 activeQuestion: state.activeQuestion,
-            
+                nextQuestion,
         }}>
             {children}
         </MainContext.Provider>
