@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.module.scss';
+import classes from './App.module.scss';
 import Description from './components/Description/Desctiption';
 import Header from './components/Header/Header';
 import Question from './components/Question/Question';
@@ -11,7 +11,7 @@ import MainProvider from './context/context';
 function App() {
   
   return (
-    <div className="App">
+    <div className={classes.App}>
       <MainProvider>
         <Header/>
         <Question/>
