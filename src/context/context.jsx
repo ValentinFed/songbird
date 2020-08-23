@@ -1,10 +1,12 @@
 import React, { useReducer } from 'react';
+import birdsData from '../data/data';
 
 export const MainContext = React.createContext();
 
 const initialState = {
     scope: 22,
     activeQuestion: 0,
+    data: birdsData,
 }
 
 const reducer = (state, action) => {
@@ -24,6 +26,7 @@ const MainProvider = ({children}) => {
         <MainContext.Provider value={{
                 scope: state.scope,
                 activeQuestion: state.activeQuestion,
+                data: state.data,
                 nextQuestion,
         }}>
             {children}

@@ -6,6 +6,8 @@ const Header = () => {
 
     const headerContext = useContext(MainContext);
 
+    console.log(headerContext);
+
     return (
         <div className={classes.Header}>
             <p>Logo</p>
