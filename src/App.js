@@ -7,19 +7,17 @@ import Variants from './components/Variants/Variants';
 import NextButton from './components/NextButton/NextButton';
 import MainProvider from './context/context';
 
-
 function App() {
-  
   return (
     <div className={classes.App}>
       <MainProvider>
-        <Header/>
-        <Question/>
-        <Variants/>
-        <Description/>
-        <NextButton/>
+        <Header />
+        <Question />
+        <Variants />
+        <Description />
+        <NextButton />
       </MainProvider>
-    </div>  
+    </div>
   );
 }
 
