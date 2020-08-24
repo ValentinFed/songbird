@@ -25,7 +25,7 @@ const Header = () => {
       </div>
 
       <ul className={classes.title__items}>
-        { titleQuestions.map((item) => <li className={classes.title__item}>{item}</li>)}
+        { titleQuestions.map((item, index) => <li key={index} className={classes.title__item}>{item}</li>)}
       </ul>
 
     </div>
