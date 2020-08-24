@@ -1,3 +1,45 @@
 .Header {
-  color: green;
+  display: flex;
+  flex-direction: column;
+  margin: 2rem 0;
+  line-height: 1;
+}
+
+.header__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .logo {
+    font-size: 3rem;
+  }
+  .scope {
+    font-size: 1.5rem;
+    span {
+      margin-left: 0.5rem;
+      color: #b71a25;
+    }
+  }
+}
+
+.title__items {
+  display: flex;
+  border-radius: 3px;
+  justify-content: space-around;
+  margin-top: 2rem;
+  .title__item {
+    width: calc(100% / 6);
+    font-size: 1.1rem;
+    padding: 0.7rem 0;
+    background-color: #b71a25;
+    text-align: center;
+  }
+  .title__item:first-child {
+    border-radius: 3px 0 0 3px;
+  }
+  .title__item:last-child {
+    border-radius: 0 3px 3px 0;
+  }
+  .title__item.active {
+    background-color: lighten(#b71a25, 10%);
+  }
 }
