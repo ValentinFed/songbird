@@ -13,9 +13,11 @@ function App() {
       <MainProvider>
         <Header />
         <Question />
-        <Variants />
-        <Description />
         <NextButton />
+        <div className={classes.answer}>
+          <Variants />
+          <Description />
+        </div>
       </MainProvider>
     </div>
   );
