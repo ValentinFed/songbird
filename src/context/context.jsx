@@ -4,7 +4,7 @@ import birdsData from '../data/data';
 export const MainContext = React.createContext();
 
 const initialState = {
-  scope: 22,
+  scope: 0,
   activeQuestion: 0,
   data: birdsData,
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 import classes from './App.module.scss';
-import Description from './components/Description/Desctiption';
+import Description from './components/Description/Description';
 import Header from './components/Header/Header';
 import Question from './components/Question/Question';
 import Variants from './components/Variants/Variants';
