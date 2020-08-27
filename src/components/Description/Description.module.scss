@@ -1,3 +1,42 @@
 .Description {
-  color: red;
+  width: 49%;
+  min-width: 300px;
+  background-color: #303746;
+  border-radius: 3px;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.start p {
+  line-height: 1.5;
+  font-size: 1.2rem;
+}
+
+.descriptionOn {
+  display: flex;
+  flex-direction: column;
+  .media {
+    display: flex;
+    .img {
+      width: 15rem;
+      height: 10rem;
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+    .audio {
+      padding: 1rem;
+      .name {
+        font-size: 1.5rem;
+      }
+      .species {
+        margin-top: 0.5rem;
+      }
+    }
+  }
+  .text {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    line-height: 1.4;
+  }
 }

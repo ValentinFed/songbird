@@ -1,6 +1,24 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import classes from './Variants.module.scss';
+import { MainContext } from '../../context/context';
 
-const Variants = () => <p className={classes.Variants}>Variants</p>;
+const Variants = () => {
+  const variats = useContext(MainContext);
+  const data = variats.data[0];
+  console.log(data);
+
+  return (
+    <div className={classes.Variants}>
+
+      {data.map((variat, index) => (
+        <p key={index} className={classes.variant}>
+          <span />
+          {variat.name}
+        </p>
+      ))}
+
+    </div>
+  );
+};
 
 export default Variants;
