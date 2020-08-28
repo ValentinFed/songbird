@@ -1,21 +1,31 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import classes from './Question.module.scss';
 import Player from '../Player/Player';
+import { MainContext } from '../../context/context';
 
 const Question = () => {
-  const initialQuestion = {
-    img: require('../../images/bird.svg'),
-    name: '*****',
-    audio: 'https://www.xeno-canto.org/sounds/uploaded/OTVUCEGYZN/XC495381-Kruisbek%20roep%20NHD%20290619.mp3',
-  };
+  const questionContext = useContext(MainContext);
+  const {
+    data, activeQuestion, rightAnswer, rightAnswerDone,
+  } = questionContext;
+
+  let dataQuestion = null;
+
+  rightAnswerDone
+    ? dataQuestion = data[activeQuestion][rightAnswer]
+    : dataQuestion = {
+      name: '*****',
+      image: require('../../images/bird.svg'),
+      audio: data[activeQuestion][rightAnswer].audio,
+    };
 
   return (
     <div className={classes.Question}>
-      <div style={{ backgroundImage: `url(${initialQuestion.img})` }} className={classes.img} />
+      <div style={{ backgroundImage: `url(${dataQuestion.image})` }} className={classes.img} />
       <div className={classes.description}>
-        <h2 className={classes.name}>{initialQuestion.name}</h2>
+        <h2 className={classes.name}>{dataQuestion.name}</h2>
         <div className={classes.line} />
-        <Player url={initialQuestion.audio} />
+        <Player url={dataQuestion.audio} />
       </div>
     </div>
   );
