@@ -4,14 +4,16 @@ import { MainContext } from '../../context/context';
 
 const Variants = () => {
   const variatsContext = useContext(MainContext);
-  const { activeQuestion } = variatsContext;
+  const { activeQuestion, onClickVariant } = variatsContext;
   const data = variatsContext.data[activeQuestion];
+
+  // console.log(variatsContext);
 
   return (
     <div className={classes.Variants}>
 
       {data.map((variat, index) => (
-        <p key={index} className={classes.variant}>
+        <p key={index} className={classes.variant} onClick={() => onClickVariant(index)}>
           <span />
           {variat.name}
         </p>
