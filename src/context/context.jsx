@@ -7,7 +7,12 @@ const initialState = {
   scope: 0,
   activeQuestion: 0,
   data: birdsData,
+  rightAnswer: null,
+  clickVariant: null,
+  rightAnswerDone: false,
 };
+
+const rightAnswetRandom = () => Math.round(Math.random() / 2 * 10);
 
 const reducer = (state, action) => {
   switch (action.type) {
