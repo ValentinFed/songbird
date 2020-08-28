@@ -7,7 +7,7 @@ const Description = () => {
   const descriptionContext = useContext(MainContext);
   const { clickVariant, data, activeQuestion } = descriptionContext;
 
-  const dataQuestion = data[activeQuestion][clickVariant];
+  const dataDescription = data[activeQuestion][clickVariant];
 
   return (
     <div className={classes.Description}>
@@ -15,17 +15,16 @@ const Description = () => {
         ? (
           <div className={classes.descriptionOn}>
             <div className={classes.media}>
-              <div style={{ backgroundImage: `url(${dataQuestion.image})` }} className={classes.img} />
+              <div style={{ backgroundImage: `url(${dataDescription.image})` }} className={classes.img} />
               <div className={classes.audio}>
-                <p className={classes.name}>{dataQuestion.name}</p>
-                <p className={classes.species}>{dataQuestion.species}</p>
-                <Player url={dataQuestion.audio} />
+                <p className={classes.name}>{dataDescription.name}</p>
+                <p className={classes.species}>{dataDescription.species}</p>
+                <Player url={dataDescription.audio} />
               </div>
             </div>
-            <p className={classes.text}>{dataQuestion.description}</p>
+            <p className={classes.text}>{dataDescription.description}</p>
           </div>
         )
-
         : (
           <div className={classes.start}>
             <p>
