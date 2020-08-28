@@ -5,7 +5,6 @@ import { MainContext } from '../../context/context';
 const Variants = () => {
   const variats = useContext(MainContext);
   const data = variats.data[0];
-  console.log(data);
 
   return (
     <div className={classes.Variants}>
