@@ -14,8 +14,6 @@ const titleQuestions = [
 const Header = () => {
   const headerContext = useContext(MainContext);
 
-  console.log(headerContext);
-
   return (
     <div className={classes.Header}>
       <div className={classes.header__top}>
