@@ -1,40 +1,28 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import classes from './Description.module.scss';
 import Player from '../Player/Player';
+import { MainContext } from '../../context/context';
 
 const Description = () => {
-  const click = true;
+  const descriptionContext = useContext(MainContext);
+  const { clickVariant, data, activeQuestion } = descriptionContext;
 
-  const initialQuestion = {
-    img: require('../../images/bird.svg'),
-    name: '*****',
-    audio: 'https://www.xeno-canto.org/sounds/uploaded/OTVUCEGYZN/XC495381-Kruisbek%20roep%20NHD%20290619.mp3',
-  };
+  const dataQuestion = data[activeQuestion][clickVariant];
+
   return (
     <div className={classes.Description}>
-      {click
+      {clickVariant !== null
         ? (
           <div className={classes.descriptionOn}>
             <div className={classes.media}>
-              <div style={{ backgroundImage: `url(${initialQuestion.img})` }} className={classes.img} />
+              <div style={{ backgroundImage: `url(${dataQuestion.image})` }} className={classes.img} />
               <div className={classes.audio}>
-                <p className={classes.name}>Name</p>
-                <p className={classes.species}>Namea lat</p>
-                <Player />
+                <p className={classes.name}>{dataQuestion.name}</p>
+                <p className={classes.species}>{dataQuestion.species}</p>
+                <Player url={dataQuestion.audio} />
               </div>
             </div>
-            <p className={classes.text}>
-              description
-              description
-              description
-              description
-              description
-              description
-              description
-              description
-              description
-
-            </p>
+            <p className={classes.text}>{dataQuestion.description}</p>
           </div>
         )
 
@@ -42,7 +30,6 @@ const Description = () => {
           <div className={classes.start}>
             <p>
               Послушайте плеер.
-
             </p>
             <p>
               Выберите птицу из списка
