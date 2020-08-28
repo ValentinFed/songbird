@@ -7,8 +7,6 @@ const Variants = () => {
   const { activeQuestion, onClickVariant } = variatsContext;
   const data = variatsContext.data[activeQuestion];
 
-  // console.log(variatsContext);
-
   return (
     <div className={classes.Variants}>
 
@@ -18,7 +16,6 @@ const Variants = () => {
           {variat.name}
         </p>
       ))}
-
     </div>
   );
 };
