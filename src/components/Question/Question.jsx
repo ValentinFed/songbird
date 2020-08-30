@@ -16,7 +16,7 @@ const Question = () => {
     ? dataQuestion = data[activeQuestion][rightAnswer]
     : dataQuestion = {
       name: '*****',
-      image: require('../../images/bird.svg'),
+      image: require('../../images/bird.png'),
       audio: data[activeQuestion][rightAnswer].audio,
     };
 
