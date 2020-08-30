@@ -27,6 +27,15 @@ const reducer = (state, action) => {
     case 'clickVariantHaveRightAnswer': return { ...state, clickVariant: action.index };
     case 'random': return { ...state, rightAnswer: action.rightAnswerRandom };
     case 'haveRightAnswer': return { ...state, rightAnswerDone: true, scope: state.scope + (5 - state.counterClick) };
+    case 'backToStart': return {
+      ...state,
+      scope: 0,
+      activeQuestion: 0,
+      rightAnswer: 0,
+      clickVariant: null,
+      rightAnswerDone: false,
+      counterClick: 0,
+    };
     default: return state;
   }
 };
@@ -39,6 +48,7 @@ const MainProvider = ({ children }) => {
   const onClickVariantHaveRightAnswer = (index) => dispatch({ type: 'clickVariantHaveRightAnswer', index });
   const random = (rightAnswerRandom) => dispatch({ type: 'random', rightAnswerRandom });
   const haveRightAnswer = () => dispatch({ type: 'haveRightAnswer' });
+  const backToStart = () => dispatch({ type: 'backToStart' });
 
   return (
     <MainContext.Provider
@@ -55,6 +65,7 @@ const MainProvider = ({ children }) => {
         random,
         haveRightAnswer,
         onClickVariantHaveRightAnswer,
+        backToStart,
 
       }}
     >
