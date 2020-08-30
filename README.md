@@ -3,7 +3,7 @@
 2. App screenshot:
    https://raw.githubusercontent.com/ValentinFed/songbird/songbird/src/images/screen.png
 3. Deploy:  
-   https://rolling-scopes-school.github.io/hallovarvara-RS2020Q1/english-for-kids/dist/
+   https://songbird-valentinfed.netlify.app
 4. Done 30.08.20 (deadline 30.08.20)
 5. Score: 200 / 240
 
