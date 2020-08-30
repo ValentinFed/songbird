@@ -11,19 +11,13 @@ const Player = ({ url }) => {
   const player = useRef(null);
   const [duration, setDuration] = useState(0);
   const [playedSeconds, setPlayedSeconds] = useState(0);
-  const [seeking, setSeeking] = useState(null);
 
   const handleTogglePlaying = () => setPlaying((playing) => !playing);
   const handleVolumeChange = (level) => setVolume(parseFloat(level));
 
-  const handleSeekMouseDown = () => {
-    setSeeking(true);
-  };
-
   const handleSeekChange = (progress) => setPlayed(parseFloat(progress));
 
   const handleSeekMouseUp = (progress) => {
-    setSeeking(false);
     player.current.seekTo(parseFloat(progress));
   };
 
@@ -34,11 +28,18 @@ const Player = ({ url }) => {
   const handleProgress = (state) => {
     setPlayed(state.played);
     setPlayedSeconds(state.playedSeconds);
+  };
 
-    if (!seeking) {
-    //   setPlayed(state.played);
-    //   setPlayedSeconds(state.playedSeconds);
-    }
+  const secondsToMin = (d) => {
+    d = Number(d);
+
+    const m = Math.round(d / 60);
+    const s = Math.round(d % 60);
+
+    const mDisplay = m < 10 ? `0${m}` : m;
+    const sDisplay = s < 10 ? `0${s}` : s;
+
+    return `${mDisplay}:${sDisplay}`;
   };
 
   return (
@@ -68,13 +69,12 @@ const Player = ({ url }) => {
           max={0.999999}
           step="any"
           value={played}
-          onMouseDown={() => handleSeekMouseDown()}
           onChange={(e) => handleSeekChange(e.target.value)}
           onMouseUp={(e) => handleSeekMouseUp(e.target.value)}
         />
         <p>
-          <span>{playedSeconds}</span>
-          <span>{duration.duration}</span>
+          <span>{secondsToMin(playedSeconds)}</span>
+          <span>{secondsToMin(duration.duration)}</span>
         </p>
       </div>
       <input
