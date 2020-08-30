@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import classes from './Finish.module.scss';
+import great from '../../images/great.gif';
 import { MainContext } from '../../context/context';
 
 const Finish = () => {
@@ -9,26 +10,30 @@ const Finish = () => {
   return (
     scope === 30
       ? (
-        <div>
-          <h2>Поздравляем!</h2>
-          <p>
+        <div className={classes.Finish}>
+          <h2 className={classes.name}>WOW!!!</h2>
+          <p className={classes.text}>
             Вы набрали
-            {scope}
+            <span>
+              {scope}
+            </span>
             баллов из 30 возможных.
           </p>
-          <p onClick={() => backToStart()}>Попробовать еще раз!</p>
+          <img className={classes.img} src={great} alt="" />
+          <p className={classes.button} onClick={() => backToStart()}>Попробовать еще раз!</p>
         </div>
-
       )
       : (
-        <div>
-          <h2>Поздравляем!</h2>
-          <p>
+        <div className={classes.Finish}>
+          <h2 className={classes.name}>Поздравляем!</h2>
+          <p className={classes.text}>
             Вы набрали
-            {scope}
+            <span>
+              {scope}
+            </span>
             баллов из 30 возможных.
           </p>
-          <p onClick={() => backToStart()}>Попробовать еще раз!</p>
+          <p className={classes.button} onClick={() => backToStart()}>Попробовать еще раз!</p>
         </div>
       )
   );
