@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import classes from './Question.module.scss';
 import Player from '../Player/Player';
 import { MainContext } from '../../context/context';
@@ -7,7 +7,7 @@ const Question = () => {
   const questionContext = useContext(MainContext);
 
   const {
-    data, activeQuestion, rightAnswer, rightAnswerDone, clickVariant, haveRightAnswer,
+    data, activeQuestion, rightAnswer, rightAnswerDone,
   } = questionContext;
 
   let dataQuestion = null;
@@ -19,12 +19,6 @@ const Question = () => {
       image: require('../../images/bird.svg'),
       audio: data[activeQuestion][rightAnswer].audio,
     };
-
-  useEffect(() => {
-    rightAnswer === clickVariant
-      ? haveRightAnswer()
-      : console.log();
-  }, [clickVariant]);
 
   return (
     <div className={classes.Question}>

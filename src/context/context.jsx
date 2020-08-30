@@ -10,6 +10,7 @@ const initialState = {
   rightAnswer: 0,
   clickVariant: null,
   rightAnswerDone: false,
+  counterClick: 0,
 };
 
 const reducer = (state, action) => {
@@ -20,10 +21,12 @@ const reducer = (state, action) => {
       clickVariant: null,
       rightAnswerDone: false,
       rightAnswer: action.rightAnswerRandom,
+      counterClick: 0,
     };
-    case 'clickVariant': return { ...state, clickVariant: action.index };
+    case 'clickVariant': return { ...state, clickVariant: action.index, counterClick: state.counterClick + 1 };
+    case 'clickVariantHaveRightAnswer': return { ...state, clickVariant: action.index };
     case 'random': return { ...state, rightAnswer: action.rightAnswerRandom };
-    case 'haveRightAnswer': return { ...state, rightAnswerDone: true };
+    case 'haveRightAnswer': return { ...state, rightAnswerDone: true, scope: state.scope + (5 - state.counterClick) };
     default: return state;
   }
 };
@@ -33,6 +36,7 @@ const MainProvider = ({ children }) => {
 
   const nextQuestion = (rightAnswerRandom) => dispatch({ type: 'nextQuestion', rightAnswerRandom });
   const onClickVariant = (index) => dispatch({ type: 'clickVariant', index });
+  const onClickVariantHaveRightAnswer = (index) => dispatch({ type: 'clickVariantHaveRightAnswer', index });
   const random = (rightAnswerRandom) => dispatch({ type: 'random', rightAnswerRandom });
   const haveRightAnswer = () => dispatch({ type: 'haveRightAnswer' });
 
@@ -45,10 +49,12 @@ const MainProvider = ({ children }) => {
         clickVariant: state.clickVariant,
         rightAnswer: state.rightAnswer,
         rightAnswerDone: state.rightAnswerDone,
+        counterClick: state.counterClick,
         nextQuestion,
         onClickVariant,
         random,
         haveRightAnswer,
+        onClickVariantHaveRightAnswer,
 
       }}
     >
